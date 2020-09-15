@@ -36,12 +36,12 @@ int verifyMatrix(int *a, int *b, int N){
 	for( int i = 0; i < N; i++){
 		for( int j = 0; j < N; j++){
 			if(a[i * N + j] != b[i * N + j]){
-				printf("TEST FAILED");
+				printf("TEST FAILED\n");
 				return 1;
 			}
 		}
 	}
-	printf("TEST PASSED");
+	printf("TEST PASSED\n");
 	return 0;
 }
 

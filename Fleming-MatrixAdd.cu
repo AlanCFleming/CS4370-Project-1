@@ -46,9 +46,14 @@ int verifyMatrix(int *a, int *b, int N){
 
 int main(int argc, char *argv[]){
 
-	//assign matrix and block size
-	const int MATRIXSIZE = argv[1];
-	const int BLOCKSIZE = argv[2];
+	//check number of arguments
+	if(argc <= 2) {
+		printf("Please supply matrix size and block size");
+	}
+
+	//assign Matrix and block size
+	const int MATRIXSIZE = atoi(argv[1]);
+	const int BLOCKSIZE = atoi(argv[2]);
 
 	//allocate system memory for array
 	int *a = (int *)malloc(sizeof(int) * MATRIXSIZE * MATRIXSIZE );	//first matrix

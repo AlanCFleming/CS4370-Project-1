@@ -31,7 +31,7 @@ void printMatrix(int *m, int N){
 	}
 }
 
-void main(){
+int main(){
 
 	//allocate system memory for array
 	int *a = (int *)malloc(sizeof(int) * MATRIXSIZE * MATRIXSIZE );	//first matrix
@@ -58,4 +58,6 @@ void main(){
 	
 	//print the result
 	printMatrix(c, MATRIXSIZE);
+
+	return 0;
 }

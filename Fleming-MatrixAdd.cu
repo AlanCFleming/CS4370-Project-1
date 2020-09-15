@@ -63,5 +63,34 @@ int main(){
 	printf("c \n --------------------- \n");
 	printMatrix(c, MATRIXSIZE);
 
+	//allocate memory on device
+	int *dev_a, *dev_b, *dev_c;
+
+	cudaMalloc((void **)(&dev_a),MATRIXSIZE * sizeof(int));
+	cudaMalloc((void **)(&dev_b),MATRIXSIZE * sizeof(int));
+	cudaMalloc((void **)(&dev_c),MATRIXSIZE * sizeof(int));
+
+	//copy memory to device
+	cudaMemcpy(dev_a,a, MATRIXSIZE * sizeof(int),cudaMemcpyHostToDevice);
+	cudaMemcpy(dev_b,b, MATRIXSIZE * sizeof(int),cudaMemcpyHostToDevice);
+	
+	//calculate gridWidth
+	dim3 dimBlock(BLOCKSIZE, BLOCKSIZE, 1);
+
+	int gridWidth = ceil((MATRIXSIZE-1)/double(dimBlock.x));
+
+	//define dimGrid
+	dim3 dimGrid(gridWidth, gridWidth,1);
+
+	//add matrix using gpu
+	add_matrix_gpu<<dimGrid, dimBlock>>(dev_a, dev_b, dev_c, MATRIXSIZE);
+
+	//copy memory from device
+	cudaMemcpy(d,dev_c, MATRIXSIZE * sizeof(int),cudaMemcpyDeviceToHost);
+
+	//print the result
+	printf("d \n --------------------- \n");
+	printMatrix(d, MATRIXSIZE);
+
 	return 0;
 }

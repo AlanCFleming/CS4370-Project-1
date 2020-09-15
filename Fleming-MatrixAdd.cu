@@ -23,8 +23,8 @@ __global__ void add_matrix_gpu(int *a, int *b, int *c, int N){
 }
 
 void printMatrix(int *m, int N){
-	for( int i = 0; i < N, i++){
-		for( int j = 0; j < N, j++){
+	for( int i = 0; i < N; i++){
+		for( int j = 0; j < N; j++){
 			printf("%d ", m[i * N + j])
 		}
 		printf("\n")
@@ -41,7 +41,7 @@ void main(){
 
 	//initialize a and b for addition
 	int init = 1325;
-	for( int i = 0, i < MATRIXSIZE; i++){
+	for( int i = 0; i < MATRIXSIZE; i++){
 		for( int j = 0; j < MATRIXSIZE; j++){
 			init = 3125 * init % 65536;
 			a[ i * MATRIXSIZE + j ] = (init - 32768)/6553;

@@ -109,5 +109,14 @@ int main(){
 	//verify the results
 	verifyMatrix(c, d, MATRIXSIZE);
 
+	//free memory
+	free(a);
+        free(b);
+        free(c);
+        free(d); 
+        cudaFree(dev_a);
+        cudaFree(dev_b);
+        cudaFree(dev_c);
+	//exit program
 	return 0;
 }

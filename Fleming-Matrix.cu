@@ -14,8 +14,8 @@ void add_matrix_cpu(int *a, int *b, int *c, int N){
 }
 
 __global__ void add_matrix_gpu(int *a, int *b, int *c, int N){
-	int col = blockId.x * blockDim.x + threadId.x;
-	int row = blockId.y * blockDim.y + threadID.y;
+	int col = blockIdx.x * blockDim.x + threadIdx.x;
+	int row = blockIdx.y * blockDim.y + threadIdx.y;
 	int index = row * N + col;
 	if( row < N && col < N) {
 		c[index] = a[index] + b[index];

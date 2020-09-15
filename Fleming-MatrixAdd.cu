@@ -50,13 +50,17 @@ int main(){
 	}
 
 	//print initial matrix a and b
+	printf("a \n --------------------- \n");
 	printMatrix(a, MATRIXSIZE);
+
+	printf("b \n --------------------- \n")
 	printMatrix(b, MATRIXSIZE);
 
 	//add matrix using cpu
 	add_matrix_cpu(a, b, c, MATRIXSIZE);
 	
 	//print the result
+	printf("c \n --------------------- \n")
 	printMatrix(c, MATRIXSIZE);
 
 	return 0;

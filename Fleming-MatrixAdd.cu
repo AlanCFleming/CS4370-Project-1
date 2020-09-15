@@ -49,6 +49,7 @@ int main(int argc, char *argv[]){
 	//check number of arguments
 	if(argc <= 2) {
 		printf("Please supply matrix size and block size");
+		return 1;
 	}
 
 	//assign Matrix and block size

@@ -41,7 +41,7 @@ int verifyMatrix(int *a, int *b, int N){
 			}
 		}
 	}
-	print("TEST PASSED");
+	printf("TEST PASSED");
 	return 0;
 }
 

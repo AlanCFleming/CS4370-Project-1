@@ -31,6 +31,20 @@ void printMatrix(int *m, int N){
 	}
 }
 
+
+int verifyMatrix(int *a, int *b, int N){
+	for( int i = 0; i < N; i++){
+		for( int j = 0; j < N; j++){
+			if(a[i * N + j] != b[i * N + j]){
+				printf("TEST FAILED");
+				return 1;
+			}
+		}
+	}
+	print("TEST PASSED");
+	return 0;
+}
+
 int main(){
 
 	//allocate system memory for array
@@ -91,6 +105,9 @@ int main(){
 	//print the result
 	printf("d \n --------------------- \n");
 	printMatrix(d, MATRIXSIZE);
+
+	//verify the results
+	verifyMatrix(c, d, MATRIXSIZE);
 
 	return 0;
 }

@@ -10,7 +10,7 @@ void mul_matrix_cpu(int *M, int *N, int *P, int width){
 			for (int k = 0; k < width; k++){
 				sum += M[i * width + k] * N[i * width + j];
 			}
-			p[i * width + j] = sum;
+			P[i * width + j] = sum;
 		}
 	}
 }
@@ -21,7 +21,7 @@ __global__ void mul_matrix_gpu(int *M, int *N, int *P, int width){
 	
 	if( row < width && col < width) {
 		int pValue = 0;
-		for( k = 0; k < width; k++){
+		for( int k = 0; k < width; k++){
 			pValue =+ M[row * width + k] * N[k * width + col];
 		}
 		P[row * width + col] = pValue;

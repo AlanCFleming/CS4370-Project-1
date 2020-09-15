@@ -8,7 +8,7 @@ void mul_matrix_cpu(int *M, int *N, int *P, int width){
 		for( int j = 0; j<width; j++){
 			int sum = 0;
 			for (int k = 0; k < width; k++){
-				sum += M[i * width + k] * N[i * width + j];
+				sum += M[i * width + k] * N[k * width + j];
 			}
 			P[i * width + j] = sum;
 		}

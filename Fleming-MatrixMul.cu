@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <cuda.h>
-#define MATRIXSIZE 8 //N can not be larger than 256
-#define BLOCKSIZE 4
+//Code written by Alan Fleming
 
 void mul_matrix_cpu(int *M, int *N, int *P, int width){
 	for( int i = 0; i<width; i++){
@@ -51,7 +50,11 @@ int verifyMatrix(int *a, int *b, int N){
 	return 0;
 }
 
-int main(){
+int main(int argc, char *argv[]){
+
+	//assign Matrix and block size
+	const int MATRIXSIZE = argv[1];
+	const int BLOCKSIZE = argv[2];
 
 	//allocate system memory for array
 	int *a = (int *)malloc(sizeof(int) * MATRIXSIZE * MATRIXSIZE );	//first matrix

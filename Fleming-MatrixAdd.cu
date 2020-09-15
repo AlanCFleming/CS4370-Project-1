@@ -66,9 +66,9 @@ int main(){
 	//allocate memory on device
 	int *dev_a, *dev_b, *dev_c;
 
-	cudaMalloc((void **)(&dev_a),MATRIXSIZE * sizeof(int));
-	cudaMalloc((void **)(&dev_b),MATRIXSIZE * sizeof(int));
-	cudaMalloc((void **)(&dev_c),MATRIXSIZE * sizeof(int));
+	cudaMalloc((void **)(&dev_a),MATRIXSIZE * MATRIXSIZE * sizeof(int));
+	cudaMalloc((void **)(&dev_b),MATRIXSIZE * MATRIXSIZE * sizeof(int));
+	cudaMalloc((void **)(&dev_c),MATRIXSIZE * MATRIXSIZE * sizeof(int));
 
 	//copy memory to device
 	cudaMemcpy(dev_a,a, MATRIXSIZE * sizeof(int),cudaMemcpyHostToDevice);

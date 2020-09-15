@@ -83,7 +83,7 @@ int main(){
 	dim3 dimGrid(gridWidth, gridWidth,1);
 
 	//add matrix using gpu
-	add_matrix_gpu<<dimGrid, dimBlock>>(dev_a, dev_b, dev_c, MATRIXSIZE);
+	add_matrix_gpu<<<dimGrid, dimBlock>>>(dev_a, dev_b, dev_c, MATRIXSIZE);
 
 	//copy memory from device
 	cudaMemcpy(d,dev_c, MATRIXSIZE * sizeof(int),cudaMemcpyDeviceToHost);

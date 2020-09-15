@@ -4,7 +4,7 @@
 
 
 void add_matrix_cpu(int *a, int *b, int *c, int N){
-	int i, j index;
+	int i, j, index;
 	for(i=0; i<N; i++){
 		for(j = 0; j<N; j++){
 			index = i*N+j;
